@@ -10,7 +10,6 @@ import { ApiService } from 'src/app/services/api.service';
 import { of, merge, Subscription, Observable } from 'rxjs';
 import { SeoService } from 'src/app/services/seo.service';
 import { AddressInformation } from 'src/app/interfaces/node-api.interface';
-import { transcode } from 'buffer';
 import { sortTransactions } from 'src/app/shared/common.utils';
 
 @Component({
