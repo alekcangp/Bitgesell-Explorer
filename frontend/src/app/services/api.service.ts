@@ -132,7 +132,7 @@ export class ApiService {
   }
 
   postTransaction$(hexPayload: string): Observable<any> {
-    return this.httpClient.post<any>(this.apiBaseUrl + this.apiBasePath + '/api/tx', hexPayload, { responseType: 'text' as 'json'});
+    return this.httpClient.post<any>(this.apiBaseUrl + this.apiBasePath + '/api/v1/tx', hexPayload, { responseType: 'text' as 'json'});
   }
 
   listPools$(interval: string | undefined) : Observable<any> {

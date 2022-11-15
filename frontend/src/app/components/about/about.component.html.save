@@ -1,23 +1,21 @@
 <div class="container-xl about-page">
 
   <div class="intro">
+    <span style="margin-left: auto; margin-right: -20px; margin-bottom: -20px">&trade;</span>
     <img class="logo" src="/resources/mempool-logo-bigger.svg" />
+
   </div>
 
-<br>
-<div class="about-text">
-<p>
-Bitgesell is a lightweight blockchain that is based on proven Bitcoin code. It has more deflation parameters and scarcity. This blockchain also uses smaller block sizes which helps to speed up the network. In addition, 90% of fees for transactions are destroyed and halving occurs once a year.
-</p>
-<br>
-    <h5><ng-container i18n="about.about-the-project">𝕊𝕡𝕖𝕔𝕚𝕗𝕚𝕔𝕒𝕥𝕚𝕠𝕟𝕤</ng-container></h5>
-<br>
-    <p i20n>
-Block Reward = nFees*0.1 + GetBlockSubsidy; Burn rate is 90% of tx fees.
-Block Weight <= 400,000; 10 times smaller than bitcoin.<br>
-100% Segwit; Eliminates problems with legacy types of transactions.<br>
-Halving Interval = 210000 blocks / 4; Halving is every year.<br>
-Block Subsidy = 50 * 4; 21 000 000 coins max.<br>
+  <div class="about-text">
+    <h5><ng-container i18n="about.about-the-project">Specifications</ng-container><ng-templatengIf]="locale.substr(0, 2) === 'en'"> &trade;</ng-template></h5>
+    <p i18n>Specifications
+
+Essentially this is a full bitcoin fork, but:<br>
+Block Reward = nFees*0.1 + GetBlockSubsidy()    // Burn rate is 90% of tx fees (https://www.blockchain.com/charts/transaction-fees)<br>
+Block Weight <= 400,000;                                     // 10 times smaller than bitcoin<br>
+100% Segwit                                                          // Eliminates problems with legacy types of transactions<br>
+Halving Interval = 210000 blocks / 4;                    // Halving is every year (bitcoin halving is every 4 years)<br>
+Block Subsidy = 50 * 4;                                         // 21 000 000 coins max<br>
 Hashing algorithm for blocks is Keccak (sha-3).</p>
   </div>
 

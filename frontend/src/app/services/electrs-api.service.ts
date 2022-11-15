@@ -30,65 +30,65 @@ export class ElectrsApiService {
   }
 
   getBlock$(hash: string): Observable<BlockExtended> {
-    return this.httpClient.get<BlockExtended>(this.apiBaseUrl + this.apiBasePath + '/api/block/' + hash);
+    return this.httpClient.get<BlockExtended>(this.apiBaseUrl + this.apiBasePath + '/api/v1/block/' + hash);
   }
 
   listBlocks$(height?: number): Observable<BlockExtended[]> {
-    return this.httpClient.get<BlockExtended[]>(this.apiBaseUrl + this.apiBasePath + '/api/blocks/' + (height || ''));
+    return this.httpClient.get<BlockExtended[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/blocks/' + (height || ''));
   }
 
   getTransaction$(txId: string): Observable<Transaction> {
-    return this.httpClient.get<Transaction>(this.apiBaseUrl + this.apiBasePath + '/api/tx/' + txId);
+    return this.httpClient.get<Transaction>(this.apiBaseUrl + this.apiBasePath + '/api/v1/tx/' + txId);
   }
 
   getRecentTransaction$(): Observable<Recent[]> {
-    return this.httpClient.get<Recent[]>(this.apiBaseUrl + this.apiBasePath + '/api/mempool/recent');
+    return this.httpClient.get<Recent[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/mempool/recent');
   }
 
   getOutspend$(hash: string, vout: number): Observable<Outspend> {
-    return this.httpClient.get<Outspend>(this.apiBaseUrl + this.apiBasePath + '/api/tx/' + hash + '/outspend/' + vout);
+    return this.httpClient.get<Outspend>(this.apiBaseUrl + this.apiBasePath + '/api/v1/tx/' + hash + '/outspend/' + vout);
   }
 
   getOutspends$(hash: string): Observable<Outspend[]> {
-    return this.httpClient.get<Outspend[]>(this.apiBaseUrl + this.apiBasePath + '/api/tx/' + hash + '/outspends');
+    return this.httpClient.get<Outspend[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/tx/' + hash + '/outspends');
   }
 
   getBlockTransactions$(hash: string, index: number = 0): Observable<Transaction[]> {
-    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/block/' + hash + '/txs/' + index);
+    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/block/' + hash + '/txs/' + index);
   }
 
   getBlockHashFromHeight$(height: number): Observable<string> {
-    return this.httpClient.get(this.apiBaseUrl + this.apiBasePath + '/api/block-height/' + height, {responseType: 'text'});
+    return this.httpClient.get(this.apiBaseUrl + this.apiBasePath + '/api/v1/block-height/' + height, {responseType: 'text'});
   }
 
   getAddress$(address: string): Observable<Address> {
-    return this.httpClient.get<Address>(this.apiBaseUrl + this.apiBasePath + '/api/address/' + address);
+    return this.httpClient.get<Address>(this.apiBaseUrl + this.apiBasePath + '/api/v1/address/' + address);
   }
 
   getAddressTransactions$(address: string): Observable<Transaction[]> {
-    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/address/' + address + '/txs');
+    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/address/' + address + '/txs');
   }
 
   getAddressTransactionsFromHash$(address: string, txid: string): Observable<Transaction[]> {
-    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/address/' + address + '/txs/chain/' + txid);
+    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/address/' + address + '/txs/chain/' + txid);
   }
 
   getAsset$(assetId: string): Observable<Asset> {
-    return this.httpClient.get<Asset>(this.apiBaseUrl + this.apiBasePath + '/api/asset/' + assetId);
+    return this.httpClient.get<Asset>(this.apiBaseUrl + this.apiBasePath + '/api/v1/asset/' + assetId);
   }
 
   getAssetTransactions$(assetId: string): Observable<Transaction[]> {
-    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/asset/' + assetId + '/txs');
+    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/asset/' + assetId + '/txs');
   }
 
   getAssetTransactionsFromHash$(assetId: string, txid: string): Observable<Transaction[]> {
-    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/asset/' + assetId + '/txs/chain/' + txid);
+    return this.httpClient.get<Transaction[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/asset/' + assetId + '/txs/chain/' + txid);
   }
 
   getAddressesByPrefix$(prefix: string): Observable<string[]> {
     if (prefix.toLowerCase().indexOf('bc1') === 0) {
       prefix = prefix.toLowerCase();
     }
-    return this.httpClient.get<string[]>(this.apiBaseUrl + this.apiBasePath + '/api/address-prefix/' + prefix);
+    return this.httpClient.get<string[]>(this.apiBaseUrl + this.apiBasePath + '/api/v1/address-prefix/' + prefix);
   }
 }

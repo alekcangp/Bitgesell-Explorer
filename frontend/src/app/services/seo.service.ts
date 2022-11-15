@@ -38,7 +38,7 @@ export class SeoService {
 
   getTitle(): string {
     if (this.network === 'testnet')
-      return this.baseTitle + ' - Bitcoin Testnet';
+      return this.baseTitle + ' - Bitgesell Testnet';
     if (this.network === 'signet')
       return this.baseTitle + ' - Bitcoin Signet';
     if (this.network === 'liquid')
@@ -47,7 +47,7 @@ export class SeoService {
       return this.baseTitle + ' - Liquid Testnet';
     if (this.network === 'bisq')
       return this.baseTitle + ' - Bisq Markets';
-    return this.baseTitle + ' - ' + (this.network ? this.ucfirst(this.network) : 'Bitcoin') + ' Explorer';
+    return  (this.network ? this.ucfirst(this.network) : 'Bitgesell') + ' Explorer';
   }
 
   ucfirst(str: string) {

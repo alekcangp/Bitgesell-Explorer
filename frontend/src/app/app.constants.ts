@@ -87,8 +87,8 @@ export const poolsColor = {
    'okkong': '#FFB300',
 }
 
- export const feeLevels = [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100, 125, 150, 175, 200,
-  250, 300, 350, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000];
+ export const feeLevels = [1, 20, 30, 40, 50, 60, 80, 100, 120, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1250, 1500, 1750, 2000,
+  2500, 3000, 3500, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 12000, 14000, 16000, 18000, 100000];
 
 export interface Language {
   code: string;
@@ -147,12 +147,12 @@ export const languages: Language[] = [
 ];
 
 export const specialBlocks = {
-  '709632': {
+  '74736': {
     labelEvent: 'Taproot 🌱 activation',
     labelEventCompleted: 'Taproot 🌱 has been activated!',
   },
-  '840000': {
+  '105000': {
     labelEvent: 'Halving 🥳',
-    labelEventCompleted: 'Block Subsidy has halved to 3.125 BTC per block',
+    labelEventCompleted: 'Block Subsidy has halved to 50 BGL per block',
   }
 };

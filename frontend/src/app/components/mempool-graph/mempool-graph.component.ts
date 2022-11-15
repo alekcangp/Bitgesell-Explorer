@@ -23,7 +23,7 @@ import { download, formatterXAxis, formatterXAxisLabel } from '../../shared/grap
 })
 export class MempoolGraphComponent implements OnInit, OnChanges {
   @Input() data: any[];
-  @Input() limitFee = 350;
+  @Input() limitFee = 100000;
   @Input() limitFilterFee = 1;
   @Input() height: number | string = 200;
   @Input() top: number | string = 20;
@@ -101,7 +101,7 @@ export class MempoolGraphComponent implements OnInit, OnChanges {
   generateArray(mempoolStats: OptimizedMempoolStats[]) {
     const finalArray: number[][][] = [];
     let feesArray: number[][] = [];
-    const limitFeesTemplate = this.template === 'advanced' ? 26 : 20;
+    const limitFeesTemplate = this.template === 'advanced' ? 36 : 36;
     for (let index = limitFeesTemplate; index > -1; index--) {
       feesArray = [];
       mempoolStats.forEach((stats) => {
@@ -213,7 +213,7 @@ export class MempoolGraphComponent implements OnInit, OnChanges {
                   <span class="symbol">%</span>
                 </span>
                 <span class="total-parcial-vbytes">
-                  ${this.vbytesPipe.transform(totalParcial, 2, 'vB', 'MvB', false)}
+                  ${this.vbytesPipe.transform(totalParcial, 0, 'vB', 'kvB', false)}
                 </span>
                 <div class="total-percentage-bar">
                   <span class="total-percentage-bar-background">
@@ -237,12 +237,12 @@ export class MempoolGraphComponent implements OnInit, OnChanges {
               </td>
               <td class="total-progress-sum">
                 <span>
-                  ${this.vbytesPipe.transform(item.value[1], 2, 'vB', 'MvB', false)}
+                  ${this.vbytesPipe.transform(item.value[1], 0, 'vB', 'kvB', false)}
                 </span>
               </td>
               <td class="total-progress-sum">
                 <span>
-                  ${this.vbytesPipe.transform(totalValueArray[index], 2, 'vB', 'MvB', false)}
+                  ${this.vbytesPipe.transform(totalValueArray[index], 0, 'vB', 'kvB', false)}
                 </span>
               </td>
               <td class="total-progress-sum-bar">
@@ -263,7 +263,7 @@ export class MempoolGraphComponent implements OnInit, OnChanges {
             <div class="title">
               ${axisValueLabel}
               <span class="total-value">
-                ${this.vbytesPipe.transform(totalValue, 2, 'vB', 'MvB', false)}
+                ${this.vbytesPipe.transform(totalValue, 0, 'vB', 'kvB', false)}
               </span>
             </div>
             <table>
@@ -342,7 +342,7 @@ export class MempoolGraphComponent implements OnInit, OnChanges {
         axisLine: { onZero: false },
         axisLabel: {
           fontSize: 11,
-          formatter: (value: number) => (`${this.vbytesPipe.transform(value, 2, 'vB', 'MvB', true)}`),
+          formatter: (value: number) => (`${this.vbytesPipe.transform(value, 0, 'vB', 'kvB', true)}`),
         },
         splitLine: {
           lineStyle: {

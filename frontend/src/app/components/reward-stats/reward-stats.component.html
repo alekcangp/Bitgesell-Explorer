@@ -7,9 +7,6 @@
         <div class="fee-text">
           <app-amount [satoshis]="rewardStats.totalReward" digitsInfo="1.2-2" [noFiat]="true"></app-amount>
         </div>
-        <span class="fiat">
-          <app-fiat [value]="rewardStats.totalReward" digitsInfo="1.0-0" ></app-fiat>
-        </span>
       </div>
     </div>
     <div class="item">
@@ -20,9 +17,7 @@
           {{ rewardStats.rewardPerTx | amountShortener: 2 }}
           <span i18n="shared.sat-vbyte|sat/vB">sats/tx</span>
         </div>
-        <span class="fiat">
-          <app-fiat [value]="rewardStats.rewardPerTx"></app-fiat>
-        </span>
+<span class="fiat" style="opacity:0">.</span>
       </div>
     </div>
     <div class="item">
@@ -32,9 +27,6 @@
         <div class="fee-text">{{ rewardStats.feePerTx | amountShortener: 2 }}
           <span i18n="shared.sat-vbyte|sat/vB">sats/tx</span>
         </div>
-        <span class="fiat">
-          <app-fiat [value]="rewardStats.feePerTx"></app-fiat>
-        </span>
       </div>
     </div>
   </div>

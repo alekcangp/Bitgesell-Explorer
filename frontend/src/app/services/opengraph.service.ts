@@ -25,7 +25,7 @@ export class OpenGraphService {
   ) {
     // save og:image tag from original template
     const initialOgImageTag = metaService.getTag("property='og:image'");
-    this.defaultImageUrl = initialOgImageTag?.content || 'https://mempool.space/resources/mempool-space-preview.png';
+    this.defaultImageUrl = initialOgImageTag?.content || 'https://explorer.bglnode.online/resources/mempool-space-preview.png';
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
@@ -55,16 +55,16 @@ export class OpenGraphService {
     this.metaService.updateTag({ property: 'og:image', content: ogImageUrl });
     this.metaService.updateTag({ property: 'twitter:image:src', content: ogImageUrl });
     this.metaService.updateTag({ property: 'og:image:type', content: 'image/png' });
-    this.metaService.updateTag({ property: 'og:image:width', content: '1200' });
-    this.metaService.updateTag({ property: 'og:image:height', content: '600' });
+    this.metaService.updateTag({ property: 'og:image:width', content: '1173' });
+    this.metaService.updateTag({ property: 'og:image:height', content: '379' });
   }
 
   clearOgImage() {
     this.metaService.updateTag({ property: 'og:image', content: this.defaultImageUrl });
     this.metaService.updateTag({ property: 'twitter:image:src', content: this.defaultImageUrl });
     this.metaService.updateTag({ property: 'og:image:type', content: 'image/png' });
-    this.metaService.updateTag({ property: 'og:image:width', content: '1000' });
-    this.metaService.updateTag({ property: 'og:image:height', content: '500' });
+    this.metaService.updateTag({ property: 'og:image:width', content: '1173' });
+    this.metaService.updateTag({ property: 'og:image:height', content: '379' });
   }
 
   /// register an event that needs to resolve before we can take a screenshot
