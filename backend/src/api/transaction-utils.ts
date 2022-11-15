@@ -50,7 +50,7 @@ class TransactionUtils {
     for (let i = 0; i < hex.length; i += 2) {
       str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
     }
-    return str;
+return str.match(/[0-9a-zA-Z!@#$%^&*;/=+\\'-]/g)!.join('')
   }
 }
 

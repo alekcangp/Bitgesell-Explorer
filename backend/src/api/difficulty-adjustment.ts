@@ -23,7 +23,7 @@ export function calcDifficultyAdjustment(
   latestBlockTimestamp: number,
 ): DifficultyAdjustment {
   const ESTIMATE_LAG_BLOCKS = 146; // For first 7.2% of epoch, don't estimate.
-  const EPOCH_BLOCK_LENGTH = 2016; // Bitcoin mainnet
+  const EPOCH_BLOCK_LENGTH = 144; // Bitcoin mainnet
   const BLOCK_SECONDS_TARGET = 600; // Bitcoin mainnet
   const TESTNET_MAX_BLOCK_SECONDS = 1200; // Bitcoin testnet
 

@@ -19,26 +19,43 @@ try {
 }
 
 PROXY_CONFIG = [
-    {
-        context: ['*',
-        '/api/**', '!/api/v1/ws',
-        '!/bisq', '!/bisq/**', '!/bisq/',
-        '!/liquid', '!/liquid/**', '!/liquid/',
-        '!/liquidtestnet', '!/liquidtestnet/**', '!/liquidtestnet/',
-        '/testnet/api/**', '/signet/api/**'
-        ],
-        target: "https://mempool.space",
-        ws: true,
-        secure: false,
-        changeOrigin: true
-    },
-    {
-        context: ['/api/v1/ws'],
-        target: "https://mempool.space",
-        ws: true,
-        secure: false,
-        changeOrigin: true,
-    },
+  {
+    context: [
+      "*",
+      "/api/**",
+      "!/api/v1/ws",
+      "!/bisq",
+      "!/bisq/**",
+      "!/bisq/",
+      "!/liquid",
+      "!/liquid/**",
+      "!/liquid/",
+      "!/liquidtestnet",
+      "!/liquidtestnet/**",
+      "!/liquidtestnet/",
+      "/signet/api/**",
+    ],
+    target: "http://localhost:8999",
+    ws: true,
+    secure: false,
+    changeOrigin: true,
+  },
+  {
+    context: ["/testnet/api/**"],
+    target: "http://localhost:8899",
+    ws: true,
+    secure: false,
+    changeOrigin: true,
+  },
+
+  {
+    context: ["/api/v1/ws"],
+    target: "http://localhost:8999",
+    ws: true,
+    secure: false,
+    changeOrigin: true,
+  },
+
     {
         context: ['/api/bisq**', '/bisq/api/**'],
         target: "https://bisq.markets",
@@ -86,7 +103,7 @@ if (configContent && configContent.BASE_MODULE == "liquid") {
 } else {
     PROXY_CONFIG.push({
         context: ['/resources/pools.json', '/resources/assets.json', '/resources/assets.minimal.json', '/resources/worldmap.json'],
-        target: "https://mempool.space",
+        target: "http://localhost",
         secure: false,
         changeOrigin: true,
     });
